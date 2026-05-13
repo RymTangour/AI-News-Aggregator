@@ -1,0 +1,8 @@
+ipykernel
+pydantic
+youtube-transcript-api
+feedparser
+docling
+sqlalchemy
+psycopg2-binary
+ollama
