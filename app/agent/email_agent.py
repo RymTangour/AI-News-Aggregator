@@ -69,7 +69,7 @@ class EmailAgent:
     def generate_introduction(self, ranked_articles: List) -> EmailIntroduction:
         if not ranked_articles:
             return EmailIntroduction(
-                greeting=f"Hey {self.user_profile['name']}, here is your daily digest of AI news for {datetime.now().strftime('%B %d, %Y')}.",
+                greeting=f"Hey, here is your daily digest of AI news for {datetime.now().strftime('%B %d, %Y')}.",
                 introduction="No articles were ranked today."
             )
 
@@ -99,15 +99,15 @@ Generate a greeting and introduction that previews these articles."""
             )
 
             intro = EmailIntroduction.model_validate_json(response["message"]["content"])
-            if not intro.greeting.startswith(f"Hey {self.user_profile['name']}"):
-                intro.greeting = f"Hey {self.user_profile['name']}, here is your daily digest of AI news for {current_date}."
+            if not intro.greeting.startswith(f"Hey "):
+                intro.greeting = f"Hey, here is your daily digest of AI news for {current_date}."
 
             return intro
         except Exception as e:
             print(f"Error generating introduction: {e}")
             current_date = datetime.now().strftime('%B %d, %Y')
             return EmailIntroduction(
-                greeting=f"Hey {self.user_profile['name']}, here is your daily digest of AI news for {current_date}.",
+                greeting=f"Hey, here is your daily digest of AI news for {current_date}.",
                 introduction="Here are the top 10 AI news articles ranked by relevance to your interests."
             )
 
