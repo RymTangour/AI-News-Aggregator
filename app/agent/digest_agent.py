@@ -40,9 +40,7 @@ class DigestAgent:
         self.system_prompt = PROMPT
         self.model = "llama3.1:latest"
     def _extract_json(self, text: str) -> dict:
-        """
-        Safe JSON extraction from LLM output
-        """
+
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if not match:
             raise ValueError(f"No JSON found in response: {text}")
@@ -55,7 +53,7 @@ class DigestAgent:
 Create a digest for this {article_type}:
 
 Title: {title}
-Content: {content[:8000]}
+Content: {content}
 
 Return ONLY valid JSON.
 """
@@ -70,7 +68,6 @@ Return ONLY valid JSON.
 
             raw = response["message"]["content"]
 
-            # Safe JSON parsing
             data = self._extract_json(raw)
 
             return DigestOutput(**data)

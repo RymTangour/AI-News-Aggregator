@@ -6,3 +6,5 @@ docling
 sqlalchemy
 psycopg2-binary
 ollama
+resend
+markdown

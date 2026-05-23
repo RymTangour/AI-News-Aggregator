@@ -56,7 +56,7 @@ def run_scrapers(hours: int = 24) -> dict:
 
 
 if __name__ == "__main__":
-    results = run_scrapers(hours=600)
+    results = run_scrapers(hours=8760)
     print(f"YouTube videos: {len(results['youtube'])}")
     print(f"Anthropic articles: {len(results['anthropic'])}")
 
