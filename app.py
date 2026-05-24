@@ -33,7 +33,7 @@ st.divider()
 st.subheader("⚙️ Settings")
 col1, col2, col3 = st.columns(3)
 with col1:
-    scrape_window = st.selectbox("Scrape window", [24, 48, 72, 168], format_func=lambda h: f"Last {h}h")
+    scrape_window = st.selectbox("Scrape window", [24, 48, 72, 168, 240], format_func=lambda h: f"Last {h}h")
 with col2:
     top_n = st.selectbox("Top articles", [5, 10, 15, 20], index=1)
 with col3:
